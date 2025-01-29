@@ -1,0 +1,6 @@
+#!/bin/bash
+
+scrot /tmp/screenshot.png &
+magick /tmp/screenshot.png -blur 0x12 /tmp/screenshotblur.png &
+
+i3lock -i /tmp/screenshotblur.png
