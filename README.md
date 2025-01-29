@@ -1,1 +1,1 @@
-``My Arch Linux(btw) dotfiles
+# My Arch Linux(btw) dotfiles
