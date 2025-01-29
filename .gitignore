@@ -1,0 +1,41 @@
+# Ignore everything by default.
+*
+
+!.zshrc
+
+!.config/
+!.config/alacritty
+!.config/alacritty/alacritty.toml
+!.config/htop
+!.config/htop/*
+!.config/hypr
+!.config/hypr/*
+!.config/i3
+!.config/i3*
+!.config/picom
+!.config/picom/*
+
+!.config/polybar
+!.config/polybar/*
+!.config/waybar
+!.config/waybar/*
+
+!.config/rofi
+!.config/rofi*
+!.config/rofi/bin
+!.config/rofi/bin/*
+!.config/rofi/config
+!.config/rofi/config/*
+
+!.config/wallpapers
+!.config/wallpapers/*
+!.config/wallpapers/grub
+!.config/wallpapers/grub/*
+
+# Git aliases, identification info
+!.gitconfig
+# The gitignore of this repository itself (!)
+!.gitignore
+# My global Git excludes file (acts as a global .gitignore)
+!.gitexcludes
+
