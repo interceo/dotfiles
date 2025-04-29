@@ -1,0 +1,50 @@
+[pyprland]
+plugins = ["scratchpads", "workspaces_follow_focus"]
+
+[scratchpads.up-term]
+# command = "wezterm start --always-new-process --class dropterm-top"
+# command = "kitty --class dropterm-top"
+command = "alacritty --class dropterm-top"
+animation = "fromTop"
+unfocus = "hide"
+position = "25% 45px"
+margin = 45
+size = "50% 50%"
+lazy = true
+
+[scratchpads.htop]
+command = "alacritty --class htop_floating -e htop"
+animation = "fromBottom"
+unfocus = "hide"
+position = "25% 48%"
+size = "50% 50%"
+lazy = true
+
+[scratchpads.nemo]
+command = "nemo"
+position = "25% 20%"
+size = "55% 60%"
+lazy = true
+# excludes = ["telegram"]
+
+[scratchpads.telegram]
+command = "telegram-desktop"
+animation = "fromBottom"
+position = "35% 18%"
+size = "25% 65%"
+
+[scratchpads.volume]
+command = "pavucontrol"
+animation = "fromRight"
+lazy = true
+size = "15% 25%"
+
+# [scratchpads.discord]
+# # command = "discord"
+# command = "chromium class=whatsapp --app=https://discord.com/app"
+# size = "50% 60%"
+# animation = ""
+# match_by = "class"
+# class = "discord"
+# # class_match = true
+# lazy = true

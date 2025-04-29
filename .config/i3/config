@@ -1,18 +1,24 @@
 set $mod Mod4
 set $alt Mod1
 
-font pango:Cantarell 10
+set $fileManager nemo
+
+# font pango:Cantarell 10
+font pango:AestheticIosevka Nerd Font Mono 12
 
 # font pango:monospace 8
 # font pango:DejaVu Sans Mono 8
 
 exec --no-startup-id picom --no-frame-pacing
 exec --no-startup-id xdotool key --clearmodifiers Num_Lock
+exec --no-startup-id conky -c ~/.config/i3/system-overview
 exec --no-startup-id sh ~/.config/polybar/launch.sh
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id wallset
-exec --no-startup-id feh --bg-scale ~/.config/wallpapers/3.jpg ~/.config/wallpapers/Cloudsday.jpg 
+exec --no-startup-id feh --bg-scale  ~/.config/wallpapers/Cloudsday.jpg ~/.config/wallpapers/3.jpg  ~/.config/wallpapers/btr.png
+# exec --no-startup-id ~/.config/conky/toggle.sh
 exec --no-startup-id firefox
+exec --no-startup-id setxkbmap -model pc105 -layout us,ru -option grp:win_space_toggle
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -22,13 +28,12 @@ exec --no-startup-id firefox
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # bindsym Control+$alt+l exec "i3lock"
 bindsym Control+$alt+l exec "betterlockscreen -l dimblur --display 1 --span"
-
+ 
 exec_always --no-startup-id ~/.config/i3/autotiling.py
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-exec_always --no-startup-id setxkbmap us,ru -option 'grp:win_space_toggle'
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -53,6 +58,8 @@ bindsym $mod+Print exec --no-startup-id maim --hidecursor --capturebackground --
 # Screenshot of an area to clipboard
 bindsym $mod+Shift+S exec --no-startup-id maim --hidecursor --capturebackground --select | xclip -selection clipboard -t image/png
 
+# bindsym $mod+space exec ~/.config/i3/switchlayout.sh
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 gaps inner 10
@@ -60,23 +67,19 @@ default_border pixel
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+# tiling_drag modifier titlebar
 
 bindsym $mod+Return exec alacritty 
 bindsym $mod+Shift+q kill
 bindsym $mod+x move scratchpad
 bindsym $mod+Tab scratchpad show
+bindsym $mod+E exec $fileManager
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/bin/launcher
 bindsym $mod+q exec --no-startup-id ~/.config/rofi/bin/powermenu
 bindsym $mod+Shift+d exec --no-startup-id ~/.config/rofi/bin/launcher_root
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -112,9 +115,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $alt+Shift+space floating toggle
@@ -203,11 +206,10 @@ bindsym $mod+r mode "resize"
 for_window [class="^.*"] border pixel 0
 
 for_window [class="^TelegramDesktop$"] floating enable
-for_window [class="(Wireguird|NekoBox)"] floating enable
+for_window [class="(Wireguird|nekoray)"] floating enable
 for_window [class="(YandexMusic|Spotify)"] floating enable
 for_window [class="(Dolphin|Nemo|Steam)"] floating enable
-for_window [class="(VLC media player)"] floating enable
-for_window [class="(Sxiv|qimgv|feh|mpv)"] floating enable
+for_window [class="(Sxiv|qimgv|feh|mpv|vlc)"] floating enable
 
 # Set i3wm colors
 # target                 title     bg    text   indicator  border
