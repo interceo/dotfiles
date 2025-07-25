@@ -1,4 +1,5 @@
 cp -r ~/.config/alacritty .config &
+cp -r ~/.config/kitty .config &
 cp -r ~/.config/htop .config &
 cp -r ~/.config/hypr .config &
 cp -r ~/.config/i3 .config &
@@ -8,3 +9,4 @@ cp -r ~/.config/polybar .config &
 cp -r ~/.config/rofi .config &
 cp -r ~/.config/wallpapers .config &
 cp -r ~/.config/waybar .config &
+cp -r ~/.config/fastfetch .config &

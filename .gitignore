@@ -34,6 +34,8 @@
 !.config/wallpapers/grub
 !.config/wallpapers/grub/*
 
+!update.sh
+
 # Git aliases, identification info
 !.gitconfig
 # The gitignore of this repository itself (!)

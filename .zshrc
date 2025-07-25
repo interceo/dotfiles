@@ -3,7 +3,7 @@
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
+export TERM=xterm-256color
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -105,6 +105,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# alias dconv='ffmpeg -i "$1" -c:v prores_ks -profile:v 3 -qscale:v 9 -c:a pcm_s16le "${${1%.mp4}}_prores.mov"'
+
+dconv() {
+  ffmpeg -i "$1" -c:v prores_ks -profile:v 3 -qscale:v 9 -c:a pcm_s16le "${${1%.mp4}}_prores.mov"
+}
 
 #cat ~/.cache/wal/sequences
 #wallset() {
@@ -113,4 +118,6 @@ source $ZSH/oh-my-zsh.sh
 #}
 
 
-neofetch
+# fastfetch --kitty ~/.config/wallpapers/fastfetch.jpg --logo-width 40
+
+fastfetch

@@ -96,8 +96,7 @@ case $chosen in
 		ans=$(rdialog &)
 		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
 			mpc -q pause
-			amixer set Master mute
-			pkill picom
+			killall -p picom
 			sh $HOME/.local/bin/lock
 			systemctl suspend
 		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then

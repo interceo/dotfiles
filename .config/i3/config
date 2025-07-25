@@ -1,6 +1,9 @@
 set $mod Mod4
 set $alt Mod1
 
+set $monitor1 = DP-2
+set $monitor2 = HDMI-0
+
 set $fileManager nemo
 
 # font pango:Cantarell 10
@@ -11,7 +14,7 @@ font pango:AestheticIosevka Nerd Font Mono 12
 
 exec --no-startup-id picom --no-frame-pacing
 exec --no-startup-id xdotool key --clearmodifiers Num_Lock
-exec --no-startup-id conky -c ~/.config/i3/system-overview
+# exec --no-startup-id conky -c ~/.config/i3/system-overview
 exec --no-startup-id sh ~/.config/polybar/launch.sh
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id wallset
@@ -69,7 +72,7 @@ default_border pixel
 # or left-clicking anywhere into the window while holding the floating modifier.
 # tiling_drag modifier titlebar
 
-bindsym $mod+Return exec alacritty 
+bindsym $mod+Return exec kitty 
 bindsym $mod+Shift+q kill
 bindsym $mod+x move scratchpad
 bindsym $mod+Tab scratchpad show
@@ -144,6 +147,17 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+workspace $ws1 output $monitor1
+workspace $ws2 output $monitor2
+workspace $ws3 output $monitor1
+workspace $ws4 output $monitor2
+workspace $ws5 output $monitor1
+workspace $ws6 output $monitor2
+workspace $ws7 output $monitor1
+workspace $ws8 output $monitor2
+workspace $ws9 output $monitor1
+workspace $ws10 output $monitor2
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -206,9 +220,10 @@ bindsym $mod+r mode "resize"
 for_window [class="^.*"] border pixel 0
 
 for_window [class="^TelegramDesktop$"] floating enable
+for_window [class="^VirtualBox.*"] floating enable
 for_window [class="(Wireguird|nekoray)"] floating enable
 for_window [class="(YandexMusic|Spotify)"] floating enable
-for_window [class="(Dolphin|Nemo|Steam)"] floating enable
+for_window [class="(Dolphin|Nemo|Steam|qBittorrent|Lutris)"] floating enable
 for_window [class="(Sxiv|qimgv|feh|mpv|vlc)"] floating enable
 
 # Set i3wm colors
