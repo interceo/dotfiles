@@ -6,6 +6,9 @@
 !.config/
 !.config/alacritty
 !.config/alacritty/alacritty.toml
+!.config/kitty
+!.config/kitty/*
+!.config/kitty/themes/*
 !.config/htop
 !.config/htop/*
 !.config/hypr
