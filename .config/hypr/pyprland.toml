@@ -28,7 +28,7 @@ lazy = true
 # excludes = ["telegram"]
 
 [scratchpads.telegram]
-command = "telegram-desktop"
+command = "Telegram"
 animation = "fromBottom"
 position = "35% 18%"
 size = "25% 65%"

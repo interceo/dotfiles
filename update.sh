@@ -10,3 +10,4 @@ cp -r ~/.config/rofi .config &
 cp -r ~/.config/wallpapers .config &
 cp -r ~/.config/waybar .config &
 cp -r ~/.config/fastfetch .config &
+cp -r ~/.config/sway .config &
