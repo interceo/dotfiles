@@ -1,135 +1,196 @@
 {
-    "layer": "top",
-    "position": "top",
-    "height": 36,
-    "spacing": 4,
-    "exclusive": true,
-    "passthrough": false,
-    "fixed-center": true,
-  
-    "modules-left": ["hyprland/workspaces", "custom/sep", "hyprland/window"],
-    "modules-center": ["custom/music-player"],
-    "modules-right": [
-        "pulseaudio",
-        "cpu",
-        "temperature",
-        "clock",
-        "custom/sep",
-        "tray",
+  "layer": "top",
+  "height": 20,
+  "spacing": 5,
+  "margin-top": 5,
+  "margin-right": 5,
+  "margin-left": 5,
+  "modules-left": [
+    "custom/rofi",
+    "sway/workspaces",
+    "sway/window",
+    "hyprland/workspaces",
+    "hyprland/window",
+    "tray",
+    "sway/mode",
+    "hyprland/submap"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "sway/language",
+    "pulseaudio",
+    "cpu",
+    "custom/cpu_temp",
+    "backlight",
+    "custom/memory"
+  ],
+  "custom/rofi": {
+    "format": "<span ></span>",
+    "on-click": "~/.config/rofi/bin/launcher",
+    "on-click-right": "~/.config/rofi/bin/powermenu",
+    "escape": true,
+    "tooltip": false
+  },
+  "sway/language": {
+    "format": "{short}", // Displays a short name for the layout (e.g., "us", "br")
+    "tooltip-format": "{long}", // Displays the full layout name in the tooltip (e.g., "English (US)")
+    "hide-single-layout": false // Set to true to hide the module if only one layout is configured
+  },
+  // Modules configuration
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "active-only": false,
+    "all-outputs": false,
+    "warp-on-scroll": false,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "<span >1</span>",
+      "2": "<span >2</span>",
+      "3": "<span >3</span>",
+      "4": "<span >4</span>",
+      "5": "<span >5</span>",
+      "6": "<span >6</span>",
+      "7": "<span >7</span>",
+      "8": "<span >8</span>",
+      "9": "<span >9</span>",
+      "0": "<span >0</span>"
+    }
+  },
+  "sway/window": {
+    "format": "<span color='#d3869b' > 󰣆  </span>{app_id} ",
+    "separate-outputs": true,
+    "icon": false,
+    "tooltip": false
+  },
+  "sway/mode": {
+    "format": " {}",
+    "max-length": 50
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "active-only": false,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "<span >󰧨</span>",
+      "2": "<span >󰈹</span>",
+      "3": "<span ></span>",
+      "4": "<span ></span>",
+      "5": "<span ></span>",
+      "6": "<span >󰭛</span>",
+      "7": "<span >󱓷</span>",
+      "8": "<span >󰚀</span>"
+    }
+  },
+  "hyprland/window": {
+    "format": "<span color='#d3869b'> 󰣆 </span>{class} ",
+    "separate-outputs": true,
+    "icon": false,
+    "tooltip": false
+  },
+  "hyprland/submap": {
+    "format": " {}",
+    "max-length": 50
+  },
+  "tray": {
+    "icon-size": 15,
+    "spacing": 8
+  },
+  "disk": {
+    "format": "<span color='#ea6962'>  </span>{free} ",
+    "interval": 1
+  },
+  "cpu": {
+    "format": "<span color='#e78a4e'>    </span>{usage}% ",
+    "tooltip": false,
+    "interval": 1
+  },
+  "custom/cpu_temp": {
+    "exec": "~/.config/waybar/scripts/waybar_temp.sh",
+    "return-type": "json",
+    "interval": 2,
+    "format": "{} ",
+    "tooltip": false
+  },
+  "backlight": {
+    "format": "<span color='#f6c657'> 󰞏 </span>{percent}% ",
+    "tooltip": false,
+    "on-click-right": "~/.config/custom_scripts/wlsunset.sh"
+  },
+  "custom/memory": {
+    "exec": "~/.config/waybar/scripts/memory_usage.sh",
+    "interval": 2,
+    "return-type": "json",
+    "format": "<span color='#458588'>   </span>{} "
+  },
+  "pulseaudio": {
+    "format": "<span color='#83a598'>    </span>{volume}% ",
+    "format-muted": "<span color='#ea6962'>    </span>{volume}% ",
+    "format-bluetooth": "<span color='#83a598'> 󰂰   </span>{volume}% ",
+    "format-bluetooth-muted": "<span color='#ea6962'> 󰂲   </span>{volume}% ",
+    "format-source": "{volume}% ",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "tooltip": false,
+    "max-volume": 130
+  },
+  "battery#bat2": {
+    "bat": "BAT2"
+  },
+  "battery": {
+    "interval": 1,
+    "states": {
+      "good": 99,
+      "warning": 30,
+      "critical": 20
+    },
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
     ],
-  
-    "custom/screen-recorder": {
-        "exec": "~/.config/waybar/modules/screen_recorder_init.sh",
-        "interval": 1,
-        "return-type": "json",
-        "format": "{}",
-        "on-click": "~/.config/waybar/modules/screen_recorder.sh save",
-        "on-click-middle": "~/.config/waybar/modules/screen_recorder.sh restart",
-        "on-click-right": "~/.config/waybar/modules/screen_recorder.sh stop",
-    },
-  
-    "custom/music-player": {
-        "interval": 1,
-        "format": "{}",
-        "return-type": "json",
-        "exec": "~/.config/waybar/modules/music_player.sh grep",
-        "on-click": "~/.config/waybar/modules/music_player.sh previous",
-        "on-click-middle": "~/.config/waybar/modules/music_player.sh pause",
-        "on-click-right": "~/.config/waybar/modules/music_player.sh next",
-    },
-  
-    "wlr/workspaces": {
-        "on-click": "activate",
-        "format": "{name}",
-        "all-outputs": true,
-        "disable-scroll": false,
-        "active-only": false,
-    },
-  
-    "hyprland/window": {
-        "format": "{}",
-        "rewrite": {
-            "(.{42}).*": "$1..",
-        },
-        "icon": true,
-        "icon-size": 22,
-    },
-  
-    "tray": {
-        "show-passive-items": true,
-        "spacing": 10,
-    },
-
-    "clock": {
-        "format": "  {:L%a %d %b | %H:%M:%S}",
-        "tooltip-format": "<tt>{calendar}</tt>",
-        "interval": 1,
-        "calendar": {
-            "mode": "month",
-            "mode-mon-col": 3,
-            "on-click-right": "mode",
-            "format": {
-                "months": "<span color='#f5e0dc'><b>{}</b></span>",
-                "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
-                "today": "<span color='#f38ba8'><b>{}</b></span>",
-            },
-        },
-        "actions": { "on-click-right": "mode" },
-        "min-length": 8,
-        "max-length": 28,
-    },
-
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "  muted",
-        "format-icons": {
-            "headphone": " ",
-            "hands-free": "󰂑",
-            "headset": "󰂑",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": [" ", " ", " "],
-        },
-        "on-click-middle": "pamixer -t",
-        "on-click": "pavucontrol",
-    },
-  
-    "pulseaudio#microphone": {
-        "format": "{format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": "",
-        "on-click": "pavucontrol -t 4",
-        "on-click-middle": "~/.config/hypr/scripts/volume.sh --toggle-mic",
-        "on-scroll-up": "~/.config/hypr/scripts/volume.sh --mic-inc",
-        "on-scroll-down": "~/.config/hypr/scripts/volume.sh --mic-dec",
-        "tooltip-format": "{source_desc} | {source_volume}%",
-    },
-  
-    "custom/sep": {
-        "format": "|",
-        "tooltip": false,
-    },
-  
-    "custom/power": {
-        "tooltip": false,
-        "on-click": "~/.config/rofi/powermenu/type-2/powermenu.sh &",
-        "format": "⏻ ",
-    },
-
-    "cpu": {
-        "format": "  {usage}%",
-        "tooltip": false,
-        "interval": 1
-    },
-    
-    "temperature": {
-        "tooltip":false,
-        "thermal-zone": 2,
-        "interval": 3,
-        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
-        "critical-threshold": 70,
-        "format": " {temperatureC}°C",
-        "format-critical": "  {temperatureC}°C",
-    },
+    "format": "<span color='#689d6a' > {icon} </span>{capacity}% ",
+    "format-critical": "<span color='#cc241d' > {icon} </span>{capacity}%!! ",
+    "format-warning": "<span color='#e78a4e' > {icon} </span>{capacity}% ",
+    "format-full": "<span color='#689d6a' > {icon} </span>{capacity}% ",
+    "format-charging": "<span color='#689d6a' > 󰂅 </span>{capacity}% ",
+    "format-charging-warning": "<span color='#e78a4e' > 󰢝 </span>{capacity}% ",
+    "format-charging-critical": "<span color='#cc241d' > 󰢜 </span>{capacity}% ",
+    "format-plugged": "<span color='#689d6a' > 󰂅 </span>{capacity}% ",
+    "format-alt": "<span color='#689d6a' > 󱧥 </span>{time} ",
+    "tooltip": false
+  },
+  "network": {
+    "interval": 2,
+    "format": "<span color='#d3869b'> 󱘖 </span>{bandwidthDownBits} ",
+    "format-wifi": "<span color='#d3869b'> {icon} </span>{bandwidthDownBits} ",
+    "format-ethernet": "<span color='#d3869b'> 󰈀 </span>{bandwidthDownBits} ",
+    "format-icons": [
+      "󰤫",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "tooltip": false,
+    "states": {
+      "normal": 25
+    }
+  },
+  "clock": {
+    // "timezone": "America/New_York",
+    "format": "<span color='#8ec07c' >   </span>{:%a %d | %H:%M} ",
+    "tooltip": false,
+    "interval": 1
   }
+}
