@@ -21,6 +21,8 @@
 !.config/i3status/*
 !.config/picom
 !.config/picom/*
+!.config/sway
+!.config/sway/*
 
 !.config/polybar
 !.config/polybar/*
