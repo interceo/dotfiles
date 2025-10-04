@@ -9,8 +9,8 @@ export TERM=xterm-256color
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="candy"
-# ZSH_THEME="eastwood"
+# ZSH_THEME="candy"
+ZSH_THEME="eastwood"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -121,3 +121,4 @@ dconv() {
 # fastfetch --kitty ~/.config/wallpapers/fastfetch.jpg --logo-width 40
 
 fastfetch
+source ~/powerlevel10k/powerlevel10k.zsh-theme

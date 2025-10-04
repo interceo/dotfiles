@@ -65,7 +65,7 @@
     "tooltip": false
   },
   "sway/mode": {
-    "format": " {}",
+    "format": "   {}",
     "max-length": 50
   },
   "hyprland/workspaces": {
@@ -189,7 +189,7 @@
   },
   "clock": {
     // "timezone": "America/New_York",
-    "format": "<span color='#8ec07c' >   </span>{:%a %d | %H:%M} ",
+    "format": "<span color='#8ec07c' >   </span>{:%a %d | %H:%M:%S} ",
     "tooltip": false,
     "interval": 1
   }
