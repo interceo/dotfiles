@@ -23,6 +23,8 @@
 !.config/picom/*
 !.config/sway
 !.config/sway/*
+!.config/sway/config.d
+!.config/sway/config.d/*
 
 !.config/polybar
 !.config/polybar/*
